@@ -1,0 +1,15 @@
+{
+  "name": "Your Name",
+  "title": "Your Title",
+  "about": "A short bio about yourself. Replace this with your own content.",
+  "email": "you@example.com",
+  "github": "https://github.com/yourusername",
+  "projects": [
+    {
+      "name": "Project One",
+      "description": "Description of your first project.",
+      "url": "https://github.com/yourusername/project-one"
+    }
+  ],
+  "skills": ["Skill 1", "Skill 2", "Skill 3"]
+}

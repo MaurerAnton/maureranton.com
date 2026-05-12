@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anton Maurer</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d2e; --surface2: #242842; --border: #2e3354;
+    --text: #e2e4f0; --text-dim: #8b8fa8; --accent: #6c5ce7; --green: #00cec9;
+    --orange: #fdcb6e; --pink: #fd79a8; --blue: #74b9ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+
+  .profile { text-align: center; margin-bottom: 48px; }
+  .profile h1 { font-size: 2.2rem; background: linear-gradient(135deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+  .profile .title { color: var(--text-dim); font-size: 1rem; margin-bottom: 24px; }
+  .profile .links { display: flex; justify-content: center; gap: 16px; }
+  .profile .links a {
+    color: var(--text-dim); text-decoration: none; font-size: 0.85rem;
+    padding: 6px 16px; border: 1px solid var(--border); border-radius: 8px; transition: all 0.2s;
+  }
+  .profile .links a:hover { border-color: var(--accent); color: var(--text); }
+
+  .section { margin-bottom: 40px; }
+  .section h2 { font-size: 1rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .section p { color: var(--text-dim); line-height: 1.7; font-size: 0.92rem; }
+
+  .projects { display: grid; gap: 12px; }
+  .project-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
+    transition: border-color 0.2s; text-decoration: none; color: inherit; display: block;
+  }
+  .project-card:hover { border-color: var(--accent); }
+  .project-card .pj-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+  .project-card .pj-desc { color: var(--text-dim); font-size: 0.82rem; }
+
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    padding: 4px 12px; font-size: 0.8rem; color: var(--text-dim);
+  }
+
+  .error { color: var(--red); font-size: 0.85rem; text-align: center; padding: 20px; }
+
+  @media (max-width: 600px) {
+    .container { padding: 40px 16px; }
+    .profile h1 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="profile" id="profile"></div>
+  <div id="about" class="section"></div>
+  <div id="projects" class="section"></div>
+  <div id="skills" class="section"></div>
+
+</div>
+
+<script>
+const CONTENT_URL = 'content.json';
+
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+async function init() {
+  try {
+    const resp = await fetch(CONTENT_URL);
+    if (!resp.ok) throw new Error('content.json HTTP ' + resp.status);
+    const c = await resp.json();
+
+    document.title = c.name;
+
+    document.getElementById('profile').innerHTML = `
+      <h1>${escHtml(c.name)}</h1>
+      <div class="title">${escHtml(c.title)}</div>
+      <div class="links">
+        <a href="${escHtml(c.github)}">GitHub</a>
+        <a href="mailto:${escHtml(c.email)}">Email</a>
+      </div>`;
+
+    if (c.about) {
+      document.getElementById('about').innerHTML = `<h2>About</h2><p>${escHtml(c.about)}</p>`;
+    }
+
+    if (c.projects && c.projects.length) {
+      document.getElementById('projects').innerHTML = `<h2>Projects</h2><div class="projects">` +
+        c.projects.map(p => `<a class="project-card" href="${escHtml(p.url)}" target="_blank"><div class="pj-name">${escHtml(p.name)}</div><div class="pj-desc">${escHtml(p.description)}</div></a>`).join('') +
+        `</div>`;
+    }
+
+    if (c.skills && c.skills.length) {
+      document.getElementById('skills').innerHTML = `<h2>Skills</h2><div class="skills">` +
+        c.skills.map(s => `<span class="skill-tag">${escHtml(s)}</span>`).join('') + `</div>`;
+    }
+
+  } catch (e) {
+    document.getElementById('profile').innerHTML = `<div class="error">Failed to load content: ${escHtml(e.message)}</div>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>
