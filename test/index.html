@@ -31,9 +31,12 @@
   .projects { display: grid; gap: 12px; }
   .project-card {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
-    transition: border-color 0.2s; text-decoration: none; color: inherit; display: block;
+    transition: border-color 0.2s; text-decoration: none; color: inherit; display: flex; gap: 16px; align-items: center;
   }
   .project-card:hover { border-color: var(--accent); }
+  .project-card .pj-icon { width: 48px; height: 48px; flex-shrink: 0; border-radius: 10px; object-fit: contain; }
+  .project-card .pj-icon svg { width: 48px; height: 48px; border-radius: 10px; }
+  .project-card .pj-body { min-width: 0; }
   .project-card .pj-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
   .project-card .pj-desc { color: var(--text-dim); font-size: 0.82rem; }
 
@@ -88,7 +91,7 @@ async function init() {
 
     if (c.projects && c.projects.length) {
       document.getElementById('projects').innerHTML = `<h2>Projects</h2><div class="projects">` +
-        c.projects.map(p => `<a class="project-card" href="${escHtml(p.url)}" target="_blank"><div class="pj-name">${escHtml(p.name)}</div><div class="pj-desc">${escHtml(p.description)}</div></a>`).join('') +
+        c.projects.map(p => `<a class="project-card" href="${escHtml(p.url)}" target="_blank">${p.icon ? `<img class="pj-icon" src="${escHtml(p.icon)}" alt="">` : ''}<div class="pj-body"><div class="pj-name">${escHtml(p.name)}</div><div class="pj-desc">${escHtml(p.description)}</div></div></a>`).join('') +
         `</div>`;
     }
 
