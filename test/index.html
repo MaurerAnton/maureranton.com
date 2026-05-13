@@ -90,8 +90,8 @@ if (!LANGS[currentLang]) currentLang = 'en';
 
 function renderLangSwitch() {
   const labels = { en:'Language?', de:'Sprache?', ru:'Язык?', es:'¿Idioma?', fr:'Langue ?' };
-  document.getElementById('langSwitch').innerHTML = `${labels[currentLang]} ` + Object.entries(LANGS)
-    .map(([k,v]) => `<a class="${k===currentLang?'active':''}" onclick="switchLang('${k}')">${v}</a>`).join(' · ');
+  document.getElementById('langSwitch').innerHTML = `<p style="color:var(--text-dim);font-size:0.75rem;line-height:1.6;margin-bottom:6px">${labels[currentLang]} ` + Object.entries(LANGS)
+    .map(([k,v]) => `<a class="${k===currentLang?'active':''}" onclick="switchLang('${k}')">${v}</a>`).join(' · ') + `</p>`;
 }
 
 function switchLang(lang) {
