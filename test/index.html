@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,6 +46,14 @@
     padding: 4px 12px; font-size: 0.8rem; color: var(--text-dim);
   }
 
+  .lang-switch { text-align: center; margin-bottom: 40px; }
+  .lang-switch button {
+    background: none; border: 1px solid var(--border); color: var(--text-dim);
+    padding: 3px 10px; margin: 2px; border-radius: 6px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s;
+  }
+  .lang-switch button:hover { border-color: var(--accent); color: var(--text); }
+  .lang-switch button.active { border-color: var(--accent); color: var(--text); background: var(--surface); }
+
   .error { color: var(--red); font-size: 0.85rem; text-align: center; padding: 20px; }
 
   @media (max-width: 600px) {
@@ -57,26 +65,48 @@
 <body>
 <div class="container">
 
+  <div class="lang-switch" id="langSwitch"></div>
+
   <div class="profile" id="profile"></div>
   <div id="about" class="section"></div>
   <div id="projects" class="section"></div>
   <div id="skills" class="section"></div>
 
-  <div style="text-align:center;margin-top:60px;padding-bottom:20px">
-    <p style="color:var(--text-dim);font-size:0.75rem;line-height:1.6">This page is smaller than 14kb. <a href="https://maureranton.com/14kb" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--border)">Why does it matter?</a></p>
-  </div>
+  <div id="footer" style="text-align:center;margin-top:60px;padding-bottom:20px"></div>
 </div>
 
 <script>
-const CONTENT_URL = 'content.json';
+const LANGS = { en:'English', de:'Deutsch', ru:'Русский', es:'Español', fr:'Français' };
+const SECTION_LABELS = { en:{ about:'About', projects:'Projects', skills:'Skills' },
+  de:{ about:'Über mich', projects:'Projekte', skills:'Fähigkeiten' },
+  ru:{ about:'Обо мне', projects:'Проекты', skills:'Навыки' },
+  es:{ about:'Sobre mí', projects:'Proyectos', skills:'Habilidades' },
+  fr:{ about:'À propos', projects:'Projets', skills:'Compétences' } };
 
 function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
-async function init() {
+let currentLang = localStorage.getItem('lang') || navigator.language.slice(0,2);
+if (!LANGS[currentLang]) currentLang = 'en';
+
+function renderLangSwitch() {
+  document.getElementById('langSwitch').innerHTML = Object.entries(LANGS)
+    .map(([k,v]) => `<button class="${k===currentLang?'active':''}" onclick="switchLang('${k}')">${v}</button>`).join('');
+}
+
+function switchLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.getElementById('htmlRoot').lang = lang;
+  renderLangSwitch();
+  loadContent();
+}
+
+async function loadContent() {
   try {
-    const resp = await fetch(CONTENT_URL);
+    const resp = await fetch(`content.${currentLang}.json`);
     if (!resp.ok) throw new Error('content.json HTTP ' + resp.status);
     const c = await resp.json();
+    const L = SECTION_LABELS[currentLang];
 
     document.title = c.name;
 
@@ -90,26 +120,29 @@ async function init() {
       </div>`;
 
     if (c.about) {
-      document.getElementById('about').innerHTML = `<h2>About</h2><p>${escHtml(c.about)}</p>`;
+      document.getElementById('about').innerHTML = `<h2>${L.about}</h2><p>${escHtml(c.about)}</p>`;
     }
 
     if (c.projects && c.projects.length) {
-      document.getElementById('projects').innerHTML = `<h2>Projects</h2><div class="projects">` +
+      document.getElementById('projects').innerHTML = `<h2>${L.projects}</h2><div class="projects">` +
         c.projects.map(p => `<a class="project-card" href="${escHtml(p.url)}" target="_blank">${p.icon ? `<img class="pj-icon" src="${escHtml(p.icon)}" alt="">` : ''}<div class="pj-body"><div class="pj-name">${escHtml(p.name)}</div><div class="pj-desc">${escHtml(p.description)}</div></div></a>`).join('') +
         `</div>`;
     }
 
     if (c.skills && c.skills.length) {
-      document.getElementById('skills').innerHTML = `<h2>Skills</h2><div class="skills">` +
+      document.getElementById('skills').innerHTML = `<h2>${L.skills}</h2><div class="skills">` +
         c.skills.map(s => `<span class="skill-tag">${escHtml(s)}</span>`).join('') + `</div>`;
     }
+
+    document.getElementById('footer').innerHTML = `<p style="color:var(--text-dim);font-size:0.75rem;line-height:1.6">${escHtml(c.footer)} <a href="${escHtml(c.footer_url)}" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--border)">${escHtml(c.footer_link)}</a></p>`;
 
   } catch (e) {
     document.getElementById('profile').innerHTML = `<div class="error">Failed to load content: ${escHtml(e.message)}</div>`;
   }
 }
 
-init();
+renderLangSwitch();
+loadContent();
 </script>
 </body>
 </html>

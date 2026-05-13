@@ -1,0 +1,32 @@
+{
+  "name": "Anton Maurer",
+  "title": "Software Developer & AI Enthusiast",
+  "about": "I have been developing, programming, and architecting software for over 10 years. A significant part of my daily time goes into studying new information technologies and deepening existing knowledge. In recent years, I have been drawn to the AI industry — training models, running inference, developing custom models, and building agents. In today's reality, my skills keep me at the forefront of the technological world.",
+  "email": "developer@maureranton.com",
+  "github": "https://github.com/MaurerAnton",
+  "blog": "https://maureranton.com/blog/",
+  "footer": "This page is smaller than 14kb.",
+  "footer_link": "Why does it matter?",
+  "footer_url": "https://maureranton.com/14kb",
+  "projects": [
+    {
+      "name": "Progressive Chat",
+      "description": "Creator of a fast and functional C++ client for Matrix — a decentralized, secure, and free messenger.",
+      "url": "https://progressive.chat",
+      "icon": "pc-icon.svg"
+    },
+    {
+      "name": "Projectforge",
+      "description": "Contributing architecture improvements to this Kotlin web application by Micromata GmbH.",
+      "url": "http://projectforge.org",
+      "icon": "https://projectforge.org/uploads/logo_projectforge.gif"
+    },
+    {
+      "name": "Niche Projects",
+      "description": "Applied solutions in Java, Python, JS, Go, and other languages — tools built for real-world problems I have encountered.",
+      "url": "https://github.com/MaurerAnton",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg"
+    }
+  ],
+  "skills": ["Agile Development", "Teamwork", "Machine Learning", "OOP & Functional Programming", "High Performance Computing", "Client-Server Architecture", "Mobile, Desktop & Web Apps"]
+}
