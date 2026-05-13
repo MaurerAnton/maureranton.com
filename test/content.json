@@ -1,0 +1,25 @@
+{
+  "name": "Lorem Ipsum",
+  "title": "Dolor Sit Amet Consectetur",
+  "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "email": "lorem@ipsum.dolor",
+  "github": "https://github.com/MaurerAnton",
+  "projects": [
+    {
+      "name": "Consectetur Adipiscing",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Vestibulum ante ipsum primis in faucibus.",
+      "url": "https://github.com/MaurerAnton"
+    },
+    {
+      "name": "Tempor Incididunt",
+      "description": "Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "url": "https://github.com/MaurerAnton"
+    },
+    {
+      "name": "Vestibulum Ante Ipsum",
+      "description": "Primis in faucibus orci luctus et ultrices posuere cubilia curae. Sed do eiusmod tempor incididunt ut labore.",
+      "url": "https://github.com/MaurerAnton"
+    }
+  ],
+  "skills": ["Lorem", "Ipsum", "Dolor", "Sit Amet", "Consectetur", "Adipiscing", "Eiusmod", "Tempor"]
+}
