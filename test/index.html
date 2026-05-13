@@ -65,14 +65,15 @@
 <body>
 <div class="container">
 
-  <div class="lang-switch" id="langSwitch"></div>
-
   <div class="profile" id="profile"></div>
   <div id="about" class="section"></div>
   <div id="projects" class="section"></div>
   <div id="skills" class="section"></div>
 
-  <div id="footer" style="text-align:center;margin-top:60px;padding-bottom:20px"></div>
+  <div id="footer" style="text-align:center;margin-top:60px;padding-bottom:20px">
+    <div id="langSwitch" style="margin-bottom:12px"></div>
+    <div id="footerText"></div>
+  </div>
 </div>
 
 <script>
@@ -134,7 +135,7 @@ async function loadContent() {
         c.skills.map(s => `<span class="skill-tag">${escHtml(s)}</span>`).join('') + `</div>`;
     }
 
-    document.getElementById('footer').innerHTML = `<p style="color:var(--text-dim);font-size:0.75rem;line-height:1.6">${escHtml(c.footer)} <a href="${escHtml(c.footer_url)}" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--border)">${escHtml(c.footer_link)}</a></p>`;
+    document.getElementById('footerText').innerHTML = `<p style="color:var(--text-dim);font-size:0.75rem;line-height:1.6">${escHtml(c.footer)} <a href="${escHtml(c.footer_url)}" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--border)">${escHtml(c.footer_link)}</a></p>`;
 
   } catch (e) {
     document.getElementById('profile').innerHTML = `<div class="error">Failed to load content: ${escHtml(e.message)}</div>`;
