@@ -82,6 +82,7 @@ async function init() {
       <div class="title">${escHtml(c.title)}</div>
       <div class="links">
         <a href="${escHtml(c.github)}">GitHub</a>
+        ${c.blog ? `<a href="${escHtml(c.blog)}">Blog</a>` : ''}
         <a href="mailto:${escHtml(c.email)}">Email</a>
       </div>`;
 
