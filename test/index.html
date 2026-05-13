@@ -26,7 +26,7 @@
 
   .section { margin-bottom: 40px; }
   .section h2 { font-size: 1rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-  .section p { color: var(--text-dim); line-height: 1.7; font-size: 0.92rem; }
+  .section p { color: var(--text-dim); line-height: 1.7; font-size: 0.92rem; user-select: text; }
 
   .projects { display: grid; gap: 12px; }
   .project-card {
@@ -36,9 +36,9 @@
   .project-card:hover { border-color: var(--accent); }
   .project-card .pj-icon { width: 48px; height: 48px; flex-shrink: 0; border-radius: 10px; object-fit: contain; }
   .project-card .pj-icon svg { width: 48px; height: 48px; border-radius: 10px; }
-  .project-card .pj-body { min-width: 0; }
-  .project-card .pj-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
-  .project-card .pj-desc { color: var(--text-dim); font-size: 0.82rem; }
+  .project-card .pj-body { min-width: 0; user-select: text; }
+  .project-card .pj-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; user-select: text; }
+  .project-card .pj-desc { color: var(--text-dim); font-size: 0.82rem; user-select: text; }
 
   .skills { display: flex; flex-wrap: wrap; gap: 8px; }
   .skill-tag {
