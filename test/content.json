@@ -1,25 +1,25 @@
 {
-  "name": "Lorem Ipsum",
-  "title": "Dolor Sit Amet Consectetur",
-  "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "email": "lorem@ipsum.dolor",
+  "name": "Anton Maurer",
+  "title": "Software Developer & AI Enthusiast",
+  "about": "I have been developing, programming, and architecting software for over 10 years. A significant part of my daily time goes into studying new information technologies and deepening existing knowledge. In recent years, I have been drawn to the AI industry — training models, running inference, developing custom models, and building agents. In today's reality, my skills keep me at the forefront of the technological world.",
+  "email": "developer@maureranton.com",
   "github": "https://github.com/MaurerAnton",
   "projects": [
     {
-      "name": "Consectetur Adipiscing",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Vestibulum ante ipsum primis in faucibus.",
-      "url": "https://github.com/MaurerAnton"
+      "name": "Progressive Chat",
+      "description": "Creator of a fast and functional C++ client for Matrix — a decentralized, secure, and free messenger.",
+      "url": "https://progressive.chat"
     },
     {
-      "name": "Tempor Incididunt",
-      "description": "Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      "url": "https://github.com/MaurerAnton"
+      "name": "Projectforge",
+      "description": "Contributing architecture improvements to this Kotlin web application by Micromata GmbH.",
+      "url": "http://projectforge.org"
     },
     {
-      "name": "Vestibulum Ante Ipsum",
-      "description": "Primis in faucibus orci luctus et ultrices posuere cubilia curae. Sed do eiusmod tempor incididunt ut labore.",
+      "name": "Niche Projects",
+      "description": "Applied solutions in Java, Python, JS, Go, and other languages — tools built for real-world problems I have encountered.",
       "url": "https://github.com/MaurerAnton"
     }
   ],
-  "skills": ["Lorem", "Ipsum", "Dolor", "Sit Amet", "Consectetur", "Adipiscing", "Eiusmod", "Tempor"]
+  "skills": ["Agile Development", "Teamwork", "Machine Learning", "OOP & Functional Programming", "High Performance Computing", "Client-Server Architecture", "Mobile, Desktop & Web Apps"]
 }
