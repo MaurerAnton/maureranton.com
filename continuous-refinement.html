@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konzept der kontinuierlichen Verfeinerung</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d2e; --surface2: #242842; --border: #2e3354;
+    --text: #e2e4f0; --text-dim: #8b8fa8; --accent: #6c5ce7; --green: #00cec9;
+    --orange: #fdcb6e; --pink: #fd79a8; --blue: #74b9ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  .container { max-width: 720px; margin: 0 auto; padding: 60px 20px; }
+
+  header { text-align: center; padding-bottom: 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  header h1 { font-size: 1.8rem; background: linear-gradient(135deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.3; }
+  header p { color: var(--text-dim); font-size: 0.85rem; margin-top: 10px; }
+
+  article p { color: var(--text-dim); line-height: 1.8; font-size: 0.95rem; margin-bottom: 20px; }
+  article p.lead { font-size: 1.05rem; color: var(--text); }
+  article .highlight-box {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px; margin: 28px 0; font-size: 0.88rem; color: var(--text);
+    line-height: 1.7;
+  }
+  article .highlight-box .cost { color: var(--green); font-weight: 600; }
+  article em { font-style: italic; color: var(--text); }
+
+  .back-link { text-align: center; padding: 30px 0 10px; font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border); margin-top: 40px; }
+  .back-link a { color: var(--accent); text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  .footer-note { text-align: center; padding: 8px 0 24px; font-size: 0.75rem; color: var(--text-dim); }
+  .footer-note a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .container { padding: 40px 16px; }
+    header h1 { font-size: 1.4rem; }
+    article p { font-size: 0.9rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Konzept der kontinuierlichen Verfeinerung</h1>
+    <p>Mai 2026</p>
+  </header>
+
+  <article>
+    <p class="lead">Eines der Dinge, die ich in meiner Ingenieurslaufbahn erst spät wirklich verstanden habe, ist das Konzept <em>Continuous Refinement</em> — der kontinuierlichen Verfeinerung. Der Begriff selbst ist in der Softwareentwicklung kaum verbreitet, in einer Welt, die schon mit SOLID-Prinzipien, Agile und unzähligen anderen Buzzwords überquillt. Aber Continuous Refinement ist anders. Es ist besonders.</p>
+
+    <p>Je mehr Erfahrung man sammelt, desto mehr entfaltet sich diese Definition. Mit der Zeit begreift man: Kein System — ob klein oder groß — kann ohne sie gebaut werden. Und je tiefer die Erfahrung, desto klarer wird das.</p>
+
+    <p>Die trockene Lehrbuch-Definition könnte lauten: »Continuous Refinement ist ein proaktiver, iterativer Ansatz in der Software- und Produktentwicklung, bei dem Teams regelmäßig Arbeit überprüfen, detaillieren und priorisieren.« Aber meine Sicht darauf: Continuous Refinement ist der einzige Weg, um funktionierende Systeme über Zeit zu bauen — ob Hobbyprojekt oder eine Lösung, die tausende Cluster in der Cloud bereitstellt und betreibt.</p>
+
+    <p>Vermutlich liegt das an der stetig wachsenden Komplexität der Softwareentwicklung, selbst im Zeitalter der KI.</p>
+
+    <div class="highlight-box">
+      Um das einzuordnen: Ich betreibe sämtliche KI-Workloads auf eigener Hardware — Inferenz, Coding-Agents, Recherche. Würde ich das alles per API nach Token bezahlen, lägen die Kosten bei rund <span class="cost">1000 Dollar pro Tag</span>. Stattdessen läuft alles lokal. Aber die fundamentalen Prinzipien? Die kann nur der Mensch anwenden.
+    </div>
+
+    <p>Wie würde eine KI zum Beispiel einen Defekt in einer Anwendung identifizieren, der nur alle zwei Wochen sporadisch auftritt? Genau da kommen wir Ingenieure ins Spiel. Wir graben uns durch die Logs, wir klopfen das System ab, wir bleiben neugierig. Das ist die Continuous-Refinement-Mentalität in Aktion.</p>
+
+    <p>Es ist leicht, in die Falle der KI-Prompt-Antwort zu tappen: »Die Lösung ist bereit für die Produktion!« — wenn sie es nicht ist. Denn keine Lösung ist jemals wirklich fertig. Es ist immer ein iterativer Prozess: Ausprobieren, Beobachten, Verbessern.</p>
+
+    <p>Und das gilt nicht nur für die Technik. Willst du auf dem neuesten Wissensstand bleiben? Continuous Refinement. Deine Wohnung sauber halten? Continuous Refinement. Denn die Entropie der Welt nimmt ständig zu — und Verfeinerung ist der einzige Weg, ihr entgegenzuwirken, Ordnung zu schaffen.</p>
+  </article>
+
+  <div class="back-link">
+    <a href="/">← Zurück zur Startseite</a>
+  </div>
+
+  <div class="footer-note">
+    Diese Seite wiegt weniger als 14 KB. <a href="/14kb">Warum ist das wichtig?</a>
+  </div>
+
+</div>
+</body>
+</html>
