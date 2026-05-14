@@ -85,9 +85,8 @@ const SECTION_LABELS = { en:{ about:'About', projects:'Projects', skills:'Skills
 
 function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
-const browserLangs = (navigator.languages || [navigator.language]).map(l => l.slice(0,2));
-const detectedLang = browserLangs.find(l => LANGS[l]);
-let currentLang = localStorage.getItem('lang') || detectedLang || 'en';
+let currentLang = localStorage.getItem('lang') || 'en';
+if (!LANGS[currentLang]) currentLang = 'en';
 
 function renderLangSwitch() {
   const labels = { en:'Language?', de:'Sprache?', ru:'Язык?', es:'¿Idioma?', fr:'Langue ?' };
